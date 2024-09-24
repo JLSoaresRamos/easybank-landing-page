@@ -1,0 +1,113 @@
+@use "../scss/mixins.scss" as m;
+@use "../scss/variables.scss" as v;
+
+.wrap_introduction {
+	display: flex;
+	overflow-x: clip;
+	position: relative;
+	margin-left: 8.4375rem;
+	align-items: center;
+	height: 42.5rem;
+
+	.bgmobile,
+	.mockupmobile {
+		display: none;
+	}
+
+	.bgimg {
+		@include m.bg-right-top($margin-top: -10%, $margin-right: -20%);
+		z-index: 1;
+		max-width: 70%;
+	}
+
+	.mockups {
+		@include m.bg-right-top($margin-top: -10%, $margin-right: -10%);
+		max-width: 80%;
+		z-index: 2;
+	}
+
+	.intro_text {
+		@include m.wrap-title-description;
+		padding-right: 15%;
+
+		h1 {
+			@include m.title;
+		}
+	}
+}
+
+@media (max-width: v.$laptop) {
+	.wrap_introduction {
+		margin-left: 4rem;
+
+		.intro_text {
+			padding-right: 10%;
+		}
+
+		.mockups {
+			max-width: 60%;
+		}
+	}
+}
+
+@media (max-width: v.$mobile) {
+	.wrap_introduction {
+		margin-left: 0;
+		text-align: center;
+		height: 50rem;
+
+		.intro_text {
+			@include m.wrap-title-description($max-width: none);
+			margin-top: auto;
+			padding: 0 1rem;
+
+			h1 {
+				@include m.title($font-size: 2rem);
+			}
+		}
+
+		.bgmobile,
+		.mockupmobile {
+			display: block;
+			position: absolute;
+			top: 0;
+		}
+
+		.bgmobile {
+			width: 100%;
+			left: 0;
+		}
+
+		.mockupmobile {
+			max-width: 100%;
+		}
+
+		.bgimg,
+		.mockups {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: v.$sm-mobile) {
+	.wrap_introduction {
+		height: 45rem;
+	}
+
+	.button {
+		display: none;
+	}
+}
+
+@media (min-width: v.$tablet) and (max-width: v.$laptop) {
+	.wrap_introduction {
+		height: 25rem;
+
+		.intro_text {
+			padding: 0 2rem;
+			h1 {
+				@include m.title($font-size: 2rem);
+			}
+		}
+	}
+}

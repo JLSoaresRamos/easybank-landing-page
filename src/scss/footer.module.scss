@@ -1,0 +1,98 @@
+@use "../scss/variables.scss" as v;
+
+.wrap_footer {
+	display: flex;
+	justify-content: space-around;
+	background-color: v.$primary-dark-blue;
+	padding: 8rem;
+
+	.social_media {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+
+		img {
+			height: 25px;
+			width: 25px;
+		}
+
+		.icons {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+
+	.rigths {
+		p {
+			margin-top: 1rem;
+		}
+	}
+
+	.links {
+		display: flex;
+		gap: 8rem;
+
+		.links_section {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			a {
+				color: v.$neutral-very-light-gray;
+			}
+		}
+	}
+}
+
+@media (max-width: v.$laptop) {
+	.wrap_footer {
+		padding: 4rem;
+		gap: 4rem;
+	}
+}
+
+@media (max-width: v.$tablet) {
+	.wrap_footer {
+		padding: 2rem;
+		gap: 2rem;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		.social_media {
+			align-items: center;
+		}
+
+		.links {
+			flex-direction: column;
+			gap: 2rem;
+
+			.links_section {
+				gap: 1rem;
+			}
+		}
+	}
+}
+
+@media (max-width: v.$mobile) {
+	.wrap_footer {
+		padding: 1rem;
+		gap: 1rem;
+		text-align: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.social_media {
+			align-items: center;
+		}
+
+		.links {
+			flex-direction: column;
+			gap: 0.5rem;
+
+			.links_section {
+				gap: 0.5rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+@use "../scss/mixins.scss" as m;
+@use "../scss/variables.scss" as v;
+
+.wrap_qualities {
+	margin-top: 4.375rem;
+	padding: 1rem 8.4375rem;
+	background-color: v.$neutral-light-grayish-blue;
+
+	h2 {
+		@include m.title;
+	}
+
+	.qualities_text {
+		@include m.wrap-title-description($max-width: 60%);
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 1rem;
+
+		.card {
+			.card_text {
+				@include m.wrap-title-description($max-width: none);
+				.title {
+					@include m.title($font-size: 1.4rem);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: v.$laptop) {
+	.wrap_qualities {
+		padding: 1rem 4rem;
+
+		h2 {
+			@include m.title($font-size: 2rem);
+		}
+	}
+}
+
+@media (max-width: v.$tablet) {
+	.wrap_qualities {
+		text-align: center;
+		padding: 1rem;
+
+		h2 {
+			@include m.title($font-size: 2rem);
+		}
+
+		.qualities_text {
+			@include m.wrap-title-description($max-width: none);
+		}
+
+		.cards {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(4, 1fr);
+		}
+	}
+}

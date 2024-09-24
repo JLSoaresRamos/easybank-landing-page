@@ -1,0 +1,65 @@
+@use "../scss/variables.scss" as v;
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	background-color: v.$neutral-white;
+	padding: 1rem 0rem;
+	z-index: 3;
+
+	.nav {
+		ul {
+			display: flex;
+			gap: 1rem;
+
+			li {
+				a {
+					color: v.$neutral-grayish-blue;
+					padding-bottom: 0.5rem;
+
+					&:hover {
+						border-bottom: 4px solid transparent;
+						border-image: linear-gradient(
+								to right,
+								v.$primary-lime-green,
+								v.$primary-bright-cyan
+							)
+							1;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: v.$mobile) {
+	header {
+		justify-content: space-between;
+		padding: 2rem;
+
+		.buttonHeader {
+			display: none;
+		}
+
+		.nav {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: v.$tablet) {
+	header {
+		justify-content: space-between;
+		padding: 2rem;
+
+		.buttonHeader {
+			display: none;
+		}
+
+		.nav {
+			display: none;
+		}
+	}
+}

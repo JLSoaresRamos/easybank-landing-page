@@ -1,0 +1,62 @@
+@use "../scss/variables.scss" as v;
+
+.hamburguerNav {
+	display: none;
+}
+
+.float_menu {
+	display: none; // Inicialmente escondido
+	position: absolute;
+	z-index: 4;
+	max-width: 320px;
+	top: 90px; // Ajuste conforme a altura do cabeçalho
+	left: 0;
+	right: 0;
+	margin-left: auto; // Margem à esquerda automática
+	margin-right: auto; // Margem à direita automática
+	background-color: v.$neutral-white; // Cor de fundo
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Sombra para destaque
+	border-radius: 0.5rem; // Bordas arredondadas
+	padding: 1rem; // Espaçamento interno
+	transition: all 0.3s ease; // Suavização da transição
+}
+
+.float_menu nav ul {
+	list-style-type: none; // Remove marcadores de lista
+	padding: 0; // Remove o padding padrão
+	margin: 0; // Remove a margem padrão
+
+	li {
+		margin: 0.5rem 0; // Espaçamento entre os itens do menu
+		text-align: center;
+
+		a {
+			color: v.$primary-dark-blue; // Cor do texto
+			text-decoration: none; // Remove sublinhado
+			padding: 0.5rem 1rem; // Espaçamento interno
+			border-radius: 0.25rem; // Bordas arredondadas
+
+			&:hover {
+				background-color: v.$primary-lime-green; // Cor de fundo ao passar o mouse
+				color: white; // Altera a cor do texto ao passar o mouse
+			}
+		}
+	}
+}
+
+.float_menu.open {
+	display: block; // Apenas para garantir que o menu apareça quando a classe "open" é adicionada
+}
+
+// Esconde o menu flutuante em larguras de laptop e acima
+@media (min-width: v.$laptop) {
+	.float_menu {
+		display: none; // Garante que o menu não apareça
+	}
+}
+
+@media (max-width: v.$tablet) {
+	.hamburguerNav {
+		display: block; // Mostra o botão hamburguer em telas menores
+	}
+}

@@ -1,0 +1,35 @@
+@use "./variables.scss" as v;
+
+@mixin button-degrade(
+	$left_color: v.$primary-lime-green,
+	$right_color: v.$primary-bright-cyan
+) {
+	background: linear-gradient(90deg, $left_color, $right_color);
+
+	color: #fff;
+	border-radius: 999px;
+	padding: 1rem 2rem;
+	font-weight: bold;
+}
+
+@mixin bg-right-top($margin-top: 0%, $margin-right: 0%) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: $margin-right;
+	margin-top: $margin-top;
+}
+
+@mixin title($weight: 500, $font-size: 3rem) {
+	font-weight: $weight;
+	color: v.$primary-dark-blue;
+	font-size: $font-size;
+}
+
+@mixin wrap-title-description($max-width: 50%) {
+	max-width: $max-width;
+
+	p {
+		margin: 2rem 0px;
+	}
+}
